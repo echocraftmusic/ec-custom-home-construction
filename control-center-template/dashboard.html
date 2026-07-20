@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow, noarchive"
+    >
+
+    <title>Echo Craft Control Center</title>
+
+    <meta
+        name="description"
+        content="Private administrator dashboard for Echo Craft Studio."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/cards.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/tables.css"
+    >
+
+</head>
+
+<body class="controlCenterDashboardPage">
+
+    <!-- ==========================================
+         MOBILE HEADER
+    =========================================== -->
+
+    <header class="dashboardMobileHeader">
+
+        <button
+            id="dashboardMenuButton"
+            class="dashboardMenuButton"
+            type="button"
+            aria-label="Open Control Center navigation"
+            aria-expanded="false"
+            aria-controls="controlCenterSidebar"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <div class="dashboardMobileBrand">
+
+            <img
+                src="../images/branding/logos/ec-gold-logo.png"
+                alt="Echo Craft Studio"
+            >
+
+            <div>
+
+                <strong>Echo Craft</strong>
+                <span>Control Center</span>
+
+            </div>
+
+        </div>
+
+        <button
+            class="dashboardMobileProfile"
+            type="button"
+            aria-label="Administrator profile"
+        >
+
+            <i class="fa-solid fa-user-shield"></i>
+
+        </button>
+
+    </header>
+
+    <!-- ==========================================
+         DASHBOARD LAYOUT
+    =========================================== -->
+
+    <div class="controlCenterLayout">
+
+        <!-- ======================================
+             SIDEBAR
+        ======================================= -->
+
+        <aside
+            id="controlCenterSidebar"
+            class="controlCenterSidebar"
+        >
+
+            <div class="controlCenterSidebarHeader">
+
+                <a
+                    class="controlCenterSidebarBrand"
+                    href="dashboard.html"
+                    aria-label="Echo Craft Control Center dashboard"
+                >
+
+                    <img
+                        src="../images/branding/logos/ec-gold-logo.png"
+                        alt="Echo Craft Studio"
+                    >
+
+                    <div>
+
+                        <h2>Echo Craft</h2>
+                        <span>Control Center</span>
+
+                    </div>
+
+                </a>
+
+                <button
+                    id="dashboardMenuCloseButton"
+                    class="dashboardMenuCloseButton"
+                    type="button"
+                    aria-label="Close Control Center navigation"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div class="controlCenterSidebarStatus">
+
+                <span class="controlCenterStatusDot"></span>
+
+                <div>
+
+                    <strong>System Online</strong>
+                    <span>Administrator Access</span>
+
+                </div>
+
+            </div>
+
+            <nav class="controlCenterNavigation">
+
+                <p class="navigationGroupLabel">
+
+                    Operations
+
+                </p>
+
+                <a
+                    class="controlCenterNavLink active"
+                    href="dashboard.html"
+                >
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#participationProgram"
+                >
+
+                    <i class="fa-solid fa-handshake"></i>
+
+                    <span>Participation Program</span>
+
+                    <span class="navigationBadge">ECPP</span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#partnerApplications"
+                >
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    <span>Partner Applications</span>
+
+                    <span
+                        id="applicationNavigationCount"
+                        class="navigationCount"
+                    >
+                        0
+                    </span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#activePartners"
+                >
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <span>Active Partners</span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#referralActivity"
+                >
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    <span>Referral Activity</span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#commissions"
+                >
+
+                    <i class="fa-solid fa-coins"></i>
+
+                    <span>Commissions</span>
+
+                </a>
+
+                <a
+                    class="controlCenterNavLink"
+                    href="#payouts"
+                >
+
+                    <i class="fa-solid fa-money-check-dollar"></i>
+
+                    <span>Payouts</span>
+
+                </a>
+
+                <p class="navigationGroupLabel">
+
+                    Studio
+
+                </p>
+
+                <button
+                    class="controlCenterNavLink comingSoonNavigation"
+                    type="button"
+                    data-coming-soon="Client management"
+                >
+
+                    <i class="fa-solid fa-address-book"></i>
+
+                    <span>Clients</span>
+
+                    <span class="comingSoonLabel">Soon</span>
+
+                </button>
+
+                <button
+                    class="controlCenterNavLink comingSoonNavigation"
+                    type="button"
+                    data-coming-soon="Project management"
+                >
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <span>Projects</span>
+
+                    <span class="comingSoonLabel">Soon</span>
+
+                </button>
+
+                <button
+                    class="controlCenterNavLink comingSoonNavigation"
+                    type="button"
+                    data-coming-soon="Portfolio management"
+                >
+
+                    <i class="fa-solid fa-images"></i>
+
+                    <span>Portfolio</span>
+
+                    <span class="comingSoonLabel">Soon</span>
+
+                </button>
+
+                <button
+                    class="controlCenterNavLink comingSoonNavigation"
+                    type="button"
+                    data-coming-soon="System settings"
+                >
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Settings</span>
+
+                    <span class="comingSoonLabel">Soon</span>
+
+                </button>
+
+            </nav>
+
+            <div class="controlCenterSidebarFooter">
+
+                <a
+                    class="returnToPublicWebsite"
+                    href="../portfolio.html"
+                >
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                    <span>View Public Website</span>
+
+                </a>
+
+                <button
+                    id="adminLogoutButton"
+                    class="adminLogoutButton"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>Sign Out</span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+        <div
+            id="dashboardSidebarOverlay"
+            class="dashboardSidebarOverlay"
+        ></div>
+
+        <!-- ======================================
+             MAIN DASHBOARD
+        ======================================= -->
+
+        <main class="controlCenterMain">
+
+            <!-- ==================================
+                 TOP HEADER
+            =================================== -->
+
+            <header class="controlCenterHeader">
+
+                <div>
+
+                    <p class="controlCenterPageEyebrow">
+
+                        Private Studio Operations
+
+                    </p>
+
+                    <h1>
+
+                        Welcome Back, Troy
+
+                    </h1>
+
+                    <p>
+
+                        Monitor Echo Craft operations and manage the
+                        Participation Program from one secure workspace.
+
+                    </p>
+
+                </div>
+
+                <div class="controlCenterHeaderActions">
+
+                    <button
+                        id="dashboardRefreshButton"
+                        class="secondaryDashboardButton"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                        Refresh
+
+                    </button>
+
+                    <a
+                        class="primaryDashboardButton"
+                        href="../partner-program.html"
+                    >
+
+                        <i class="fa-solid fa-eye"></i>
+
+                        View Partner Page
+
+                    </a>
+
+                </div>
+
+            </header>
+
+            <!-- ==================================
+                 SYSTEM NOTICE
+            =================================== -->
+
+            <section
+                id="dashboardSystemNotice"
+                class="dashboardSystemNotice"
+            >
+
+                <div class="systemNoticeIcon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>Control Center Development Mode</strong>
+
+                    <p>
+
+                        The dashboard interface is active. Secure database
+                        access and live ECPP records will be connected next.
+
+                    </p>
+
+                </div>
+
+                <button
+                    id="dismissSystemNotice"
+                    type="button"
+                    aria-label="Dismiss system notice"
+                >
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </section>
+
+            <!-- ==================================
+                 SUMMARY STATS
+            =================================== -->
+
+            <section
+                class="dashboardStatGrid"
+                aria-label="Participation Program summary"
+            >
+
+                <article class="dashboardStatCard">
+
+                    <div class="dashboardStatIcon">
+
+                        <i class="fa-solid fa-user-clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span class="dashboardStatLabel">
+
+                            Applications
+
+                        </span>
+
+                        <strong id="applicationCount">0</strong>
+
+                        <small>Awaiting review</small>
+
+                    </div>
+
+                </article>
+
+                <article class="dashboardStatCard">
+
+                    <div class="dashboardStatIcon">
+
+                        <i class="fa-solid fa-handshake"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span class="dashboardStatLabel">
+
+                            Active Partners
+
+                        </span>
+
+                        <strong id="activePartnerCount">0</strong>
+
+                        <small>Approved participants</small>
+
+                    </div>
+
+                </article>
+
+                <article class="dashboardStatCard">
+
+                    <div class="dashboardStatIcon">
+
+                        <i class="fa-solid fa-arrow-pointer"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span class="dashboardStatLabel">
+
+                            Referral Visits
+
+                        </span>
+
+                        <strong id="referralVisitCount">0</strong>
+
+                        <small>Total tracked visits</small>
+
+                    </div>
+
+                </article>
+
+                <article class="dashboardStatCard">
+
+                    <div class="dashboardStatIcon">
+
+                        <i class="fa-solid fa-dollar-sign"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span class="dashboardStatLabel">
+
+                            Pending Commission
+
+                        </span>
+
+                        <strong id="pendingCommissionTotal">$0</strong>
+
+                        <small>Awaiting approval</small>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- ==================================
+                 ECPP OVERVIEW
+            =================================== -->
+
+            <section
+                id="participationProgram"
+                class="dashboardFeatureSection"
+            >
+
+                <div class="dashboardSectionHeading">
+
+                    <div>
+
+                        <span class="dashboardSectionTag">
+
+                            First Active Module
+
+                        </span>
+
+                        <h2>
+
+                            Echo Craft Participation Program
+
+                        </h2>
+
+                        <p>
+
+                            Manage partner applications, referral activity,
+                            client conversions, commissions, and payouts.
+
+                        </p>
+
+                    </div>
+
+                    <span class="moduleStatus active">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        In Development
+
+                    </span>
+
+                </div>
+
+                <div class="participationModuleGrid">
+
+                    <article class="participationModuleCard">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        <h3>Review Applications</h3>
+
+                        <p>
+
+                            Approve, reject, or request more information
+                            from potential Echo Craft partners.
+
+                        </p>
+
+                        <a href="#partnerApplications">
+
+                            Open Applications
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+                    <article class="participationModuleCard">
+
+                        <i class="fa-solid fa-link"></i>
+
+                        <h3>Partner Links</h3>
+
+                        <p>
+
+                            Create and manage unique referral links,
+                            partner codes, and branded QR codes.
+
+                        </p>
+
+                        <a href="#activePartners">
+
+                            Manage Partners
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+                    <article class="participationModuleCard">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <h3>Track Results</h3>
+
+                        <p>
+
+                            Monitor visits, qualified leads, completed
+                            projects, and partner conversion activity.
+
+                        </p>
+
+                        <a href="#referralActivity">
+
+                            View Activity
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+                    <article class="participationModuleCard">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                        <h3>Manage Payments</h3>
+
+                        <p>
+
+                            Review earned commissions and maintain
+                            pending, approved, and paid statuses.
+
+                        </p>
+
+                        <a href="#commissions">
+
+                            Review Commissions
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 APPLICATIONS
+            =================================== -->
+
+            <section
+                id="partnerApplications"
+                class="dashboardPanel"
+            >
+
+                <div class="dashboardPanelHeader">
+
+                    <div>
+
+                        <span class="dashboardSectionTag">
+
+                            ECPP Applications
+
+                        </span>
+
+                        <h2>Partner Applications</h2>
+
+                        <p>
+
+                            New applications will appear here for review.
+
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="secondaryDashboardButton"
+                        type="button"
+                        data-coming-soon-action="Application filters"
+                    >
+
+                        <i class="fa-solid fa-filter"></i>
+
+                        Filter
+
+                    </button>
+
+                </div>
+
+                <div class="dashboardEmptyState">
+
+                    <span class="dashboardEmptyStateIcon">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </span>
+
+                    <h3>No Applications Yet</h3>
+
+                    <p>
+
+                        Once the public partner application form is active,
+                        submitted applications will appear in this area.
+
+                    </p>
+
+                    <a
+                        class="primaryDashboardButton"
+                        href="../partners/apply.html"
+                    >
+
+                        Preview Application Page
+
+                    </a>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 ACTIVE PARTNERS
+            =================================== -->
+
+            <section
+                id="activePartners"
+                class="dashboardPanel"
+            >
+
+                <div class="dashboardPanelHeader">
+
+                    <div>
+
+                        <span class="dashboardSectionTag">
+
+                            Partner Network
+
+                        </span>
+
+                        <h2>Active Partners</h2>
+
+                        <p>
+
+                            Approved Echo Craft partners and their
+                            assigned referral information.
+
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="primaryDashboardButton"
+                        type="button"
+                        data-coming-soon-action="Add partner"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Partner
+
+                    </button>
+
+                </div>
+
+                <div class="ec-table-wrapper">
+
+                    <table class="ec-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Partner</th>
+                                <th>Referral Code</th>
+                                <th>Status</th>
+                                <th>Visits</th>
+                                <th>Clients</th>
+                                <th>Commission</th>
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td
+                                    class="ec-table-empty"
+                                    colspan="7"
+                                >
+
+                                    <h3>No Active Partners</h3>
+
+                                    <p>
+
+                                        Approved partners will appear here
+                                        with referral and commission details.
+
+                                    </p>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 REFERRAL ACTIVITY
+            =================================== -->
+
+            <section
+                id="referralActivity"
+                class="dashboardPanel"
+            >
+
+                <div class="dashboardPanelHeader">
+
+                    <div>
+
+                        <span class="dashboardSectionTag">
+
+                            Referral Tracking
+
+                        </span>
+
+                        <h2>Recent Referral Activity</h2>
+
+                        <p>
+
+                            Link visits, QR scans, leads, and client
+                            conversions will be recorded here.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="dashboardEmptyState compact">
+
+                    <span class="dashboardEmptyStateIcon">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </span>
+
+                    <h3>Waiting for Activity</h3>
+
+                    <p>
+
+                        Referral events will begin appearing after partner
+                        links and tracking are connected.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ==================================
+                 COMMISSIONS AND PAYOUTS
+            =================================== -->
+
+            <div class="dashboardTwoColumnGrid">
+
+                <section
+                    id="commissions"
+                    class="dashboardPanel"
+                >
+
+                    <div class="dashboardPanelHeader">
+
+                        <div>
+
+                            <span class="dashboardSectionTag">
+
+                                Compensation
+
+                            </span>
+
+                            <h2>Commissions</h2>
+
+                            <p>
+
+                                Review pending and approved earnings.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="dashboardEmptyState compact">
+
+                        <span class="dashboardEmptyStateIcon">
+
+                            <i class="fa-solid fa-coins"></i>
+
+                        </span>
+
+                        <h3>No Commissions Yet</h3>
+
+                        <p>
+
+                            Commission records will appear after a referred
+                            client completes a qualifying paid project.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <section
+                    id="payouts"
+                    class="dashboardPanel"
+                >
+
+                    <div class="dashboardPanelHeader">
+
+                        <div>
+
+                            <span class="dashboardSectionTag">
+
+                                Payment History
+
+                            </span>
+
+                            <h2>Payouts</h2>
+
+                            <p>
+
+                                Track completed partner payments.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="dashboardEmptyState compact">
+
+                        <span class="dashboardEmptyStateIcon">
+
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+
+                        </span>
+
+                        <h3>No Payouts Yet</h3>
+
+                        <p>
+
+                            Paid commission records will be stored here
+                            for future reference.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- ==================================
+                 FUTURE MODULES
+            =================================== -->
+
+            <section class="futureModulesSection">
+
+                <div class="dashboardSectionHeading">
+
+                    <div>
+
+                        <span class="dashboardSectionTag">
+
+                            Built to Expand
+
+                        </span>
+
+                        <h2>Future Control Center Modules</h2>
+
+                        <p>
+
+                            The Control Center is being built as a modular
+                            business platform beyond the ECPP.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="futureModuleGrid">
+
+                    <article class="futureModuleCard">
+
+                        <i class="fa-solid fa-address-card"></i>
+
+                        <h3>Client Management</h3>
+
+                        <span>Coming Soon</span>
+
+                    </article>
+
+                    <article class="futureModuleCard">
+
+                        <i class="fa-solid fa-diagram-project"></i>
+
+                        <h3>Project Management</h3>
+
+                        <span>Coming Soon</span>
+
+                    </article>
+
+                    <article class="futureModuleCard">
+
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                        <h3>Quotes &amp; Invoices</h3>
+
+                        <span>Coming Soon</span>
+
+                    </article>
+
+                    <article class="futureModuleCard">
+
+                        <i class="fa-solid fa-photo-film"></i>
+
+                        <h3>Portfolio Publishing</h3>
+
+                        <span>Coming Soon</span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+            <footer class="controlCenterFooter">
+
+                <p>
+
+                    &copy;
+                    <span id="dashboardCurrentYear"></span>
+                    Echo Craft Studio Control Center
+
+                </p>
+
+                <span>
+
+                    Authorized Access Only
+
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- ==========================================
+         TOAST MESSAGE
+    =========================================== -->
+
+    <div
+        id="dashboardToast"
+        class="dashboardToast"
+        role="status"
+        aria-live="polite"
+        hidden
+    >
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <span id="dashboardToastMessage"></span>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

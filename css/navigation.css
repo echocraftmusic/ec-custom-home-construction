@@ -1,0 +1,285 @@
+/* =========================================================
+   EC CUSTOM HOME CONSTRUCTION
+   NAVIGATION
+========================================================= */
+
+/* =========================================================
+   DESKTOP SIDEBAR BEHAVIOR
+========================================================= */
+
+.site-sidebar {
+    display: block;
+}
+
+.sidebar-nav a {
+    width: 100%;
+}
+
+.sidebar-nav a[aria-current="page"],
+.sidebar-link.active {
+    color: var(--gold-bright);
+}
+
+/* =========================================================
+   MOBILE HEADER
+========================================================= */
+
+.mobile-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1200;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 76px;
+    padding: 14px 20px;
+    color: var(--white);
+    background:
+        linear-gradient(rgba(8, 7, 6, 0.82), rgba(8, 7, 6, 0.9)),
+        url("../images/marble-sidebar.webp") center / cover no-repeat;
+    border-bottom: 1px solid rgba(204, 158, 73, 0.42);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+}
+
+.mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.mobile-monogram {
+    flex: 0 0 auto;
+    color: var(--gold-bright);
+    font-size: 2.15rem;
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+}
+
+.mobile-brand-name {
+    max-width: 180px;
+    color: var(--white);
+    font-size: 0.67rem;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-toggle {
+    position: relative;
+    z-index: 1300;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    width: 46px;
+    height: 46px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--gold-bright);
+    transition:
+        width var(--transition),
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+.menu-toggle span:nth-child(1) {
+    width: 27px;
+}
+
+.menu-toggle span:nth-child(2) {
+    width: 20px;
+}
+
+.menu-toggle span:nth-child(3) {
+    width: 27px;
+}
+
+.menu-toggle:hover span:nth-child(2) {
+    width: 27px;
+}
+
+.menu-toggle.is-open span:nth-child(1) {
+    width: 27px;
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-open span:nth-child(3) {
+    width: 27px;
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   MOBILE NAVIGATION PANEL
+========================================================= */
+
+.mobile-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1250;
+    width: min(88vw, 390px);
+    height: 100vh;
+    padding: 116px 30px 34px;
+    overflow-y: auto;
+    color: var(--white);
+    background:
+        linear-gradient(rgba(10, 8, 6, 0.88), rgba(10, 8, 6, 0.96)),
+        url("../images/marble-sidebar.webp") center / cover no-repeat;
+    border-left: 1px solid rgba(204, 158, 73, 0.38);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.38);
+    transform: translateX(105%);
+    visibility: hidden;
+    transition:
+        transform 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.mobile-navigation.is-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.mobile-navigation a {
+    position: relative;
+    display: block;
+    padding: 18px 4px;
+    border-bottom: 1px solid rgba(216, 178, 105, 0.18);
+    color: rgba(255, 253, 248, 0.82);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.32rem;
+    letter-spacing: 0.04em;
+    transition:
+        color var(--transition),
+        padding-left var(--transition);
+}
+
+.mobile-navigation a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: translateY(-50%);
+    transition: width var(--transition);
+}
+
+.mobile-navigation a:hover,
+.mobile-navigation a.active {
+    padding-left: 24px;
+    color: var(--gold-bright);
+}
+
+.mobile-navigation a:hover::before,
+.mobile-navigation a.active::before {
+    width: 15px;
+}
+
+.mobile-navigation .mobile-nav-cta {
+    margin-top: 28px;
+    padding: 16px 20px;
+    border: 1px solid var(--gold-muted);
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold-bright), var(--gold-muted));
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mobile-navigation .mobile-nav-cta:hover {
+    padding-left: 20px;
+    color: var(--black);
+    background: var(--cream);
+}
+
+.mobile-navigation .mobile-nav-cta::before {
+    display: none;
+}
+
+/* =========================================================
+   MOBILE OVERLAY
+========================================================= */
+
+body.menu-open {
+    overflow: hidden;
+}
+
+body.menu-open::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1180;
+    background: rgba(6, 5, 4, 0.62);
+    backdrop-filter: blur(3px);
+}
+
+/* =========================================================
+   RESPONSIVE SWITCH
+========================================================= */
+
+@media (max-width: 991px) {
+    .site-sidebar {
+        display: none;
+    }
+
+    .mobile-header {
+        display: flex;
+    }
+
+    .page-shell {
+        margin-left: 0;
+        padding-top: 76px;
+    }
+}
+
+@media (max-width: 520px) {
+    .mobile-header {
+        min-height: 70px;
+        padding: 12px 16px;
+    }
+
+    .page-shell {
+        padding-top: 70px;
+    }
+
+    .mobile-monogram {
+        font-size: 1.95rem;
+    }
+
+    .mobile-brand-name {
+        max-width: 148px;
+        font-size: 0.58rem;
+    }
+
+    .mobile-navigation {
+        width: 92vw;
+        padding: 104px 24px 28px;
+    }
+
+    .mobile-navigation a {
+        font-size: 1.16rem;
+    }
+}
